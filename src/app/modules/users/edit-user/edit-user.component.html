@@ -1,0 +1,59 @@
+<form name="userform" #form="ngForm" autocomplete="false" (ngSubmit)="onSubmit(form)">
+    <!-- <input  name="id"[(ngModel)]= "staffService.formData.id">  -->
+  
+   <div class="form-group">
+       <label>id</label>
+       <input name="id" #id="ngModel" [(ngModel)]="userService.formData.id"
+            class="form-control" placeholder="Enter id" 
+           [ngClass]="{'is-invalid': id.touched && id.invalid}">
+
+<!-- <input [(ngModel)]="userService.formData.id" > -->
+
+
+       <div class="validation-error" *ngIf="id.touched && id.invalid">
+           <div>id is required</div>
+       </div>
+   </div>
+   <br>
+   <div class="form-group">
+       <label>NAME</label>
+       <input name="name" #name="ngModel" [(ngModel)]="userService.formData.name"
+            class="form-control" placeholder="Enter Full Name" 
+           [ngClass]="{'is-invalid': name.touched && name.invalid}">
+
+       <div class="validation-error" *ngIf="name.touched && name.invalid">
+           <div>name is required</div>
+       </div>
+   </div>
+   <br>
+
+
+   <div class="form-group">
+       <label>email</label>
+       <input name="email" #email="ngModel" [(ngModel)]="userService.formData.email"
+            class="form-control" placeholder="Enter email" 
+           [ngClass]="{'is-invalid': email.touched && email.invalid}">
+
+       <div class="validation-error" *ngIf="email.touched && email.invalid">
+           <div>email is required</div>
+       </div>
+   </div>
+
+   <div class="form-group">
+       <label>active</label>
+       <input name="active" #active="ngModel" [(ngModel)]="userService.formData.active"
+            class="form-control" placeholder="Enter Full active" 
+           [ngClass]="{'is-invalid': active.touched && active.invalid}">
+
+       <div class="validation-error" *ngIf="active.touched && active.invalid">
+           <div>active is required</div>
+       </div>
+   </div>
+   <br>
+   <br>
+   <div class="form-group">
+       <button type="submit" [disabled]="!(form.valid && form.dirty)" class="btn btn-lg btn-primary form-control">SUBMIT</button>
+
+   </div>
+</form>
+

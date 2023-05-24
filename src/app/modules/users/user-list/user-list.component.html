@@ -1,0 +1,32 @@
+<div>
+<a  [routerLink]="['../add-user']" class="btn btn-warning" style="float: right; margin-bottom: 10px;">Add User</a>
+
+</div>
+<table class="table  table-borded table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>email</th>
+            <th>active</th>
+            <th>Actions</th>
+
+
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let stf of userService.user ">
+            <td>{{stf.id}}</td>
+            <td>{{stf.name}}</td>
+            <td>{{stf.email}}</td>
+            <td>{{stf.active}}</td>
+            <td>
+                <button class="btn btn-warning"  (click)="updateUser(stf.id)">Edit</button>&nbsp;
+                <button class="btn btn-danger"  (click)="deleteUser(stf.id)">Delete</button>&nbsp;
+            </td>
+
+        </tr>
+    </tbody>
+
+</table>
